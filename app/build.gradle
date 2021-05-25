@@ -33,6 +33,7 @@ android {
         exclude 'META-INF/NOTICE.md'
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE.markdown'
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/NOTICE.txt'
         exclude 'META-INF/notice.txt'
@@ -49,11 +50,15 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation (group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1' )
+
+    //implementation (group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1' )
 
 
-    implementation group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: '2.34'
-    implementation group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '2.34'
-
-
+    implementation group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: '3.0.2'
+    implementation group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '3.0.2'
+    //implementation group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: '3.0.2'
+    //implementation group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: '3.0.2'
+    //implementation group: 'org.glassfish.jersey.media', name: 'jersey-media-moxy', version: '3.0.2'
+    //implementation group: 'org.glassfish.jersey.media', name: 'jersey-media-sse', version: '3.0.2'
+    implementation group: 'jakarta.activation', name: 'jakarta.activation-api', version: '2.0.1'
 }
