@@ -5,14 +5,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import org.glassfish.jersey.client.ClientConfig;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
@@ -63,31 +56,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        ClientConfig config = new ClientConfig();
-        Client client = ClientBuilder.newClient(config);
-        WebTarget target = client.target(getBaseURI());
+
 
         String c = buttons.get(findViewById(v.getId()));
-        Response val = null;
-        try {
-             val = target.path("rest").path("hello/{info}").resolveTemplate("info", c).
-                    request(MediaType.TEXT_PLAIN).get();
-        }
-        catch(Exception ex){
-           System.out.println(ex.getMessage());
-           ex.printStackTrace();
-        }
 
-            String s = val.readEntity(String.class);
+
+            String s = Model.enterValue(c.charAt(0));
             textAns.setText(s);
 
 
 
         }
 
-    private static URI getBaseURI() {
-        //here server is running on 4444 port number and project name is restfuljersey
-        return UriBuilder.fromUri("https://localhost:8080/test").build();
-    }
 
     }
